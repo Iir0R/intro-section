@@ -1,0 +1,358 @@
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --clr-neutral-100: hsl(0, 0%, 98%);
+    --clr-neutral-200: hsl(0, 0%, 41%);
+    --clr-neutral-300: hsl(0, 0%, 8%);
+
+    --fs: 1.125rem;
+
+    --ff: 'Epilogue', sans-serif;
+
+    --fw-500: 500;
+    --fw-700: 700;
+}
+
+body {
+    font-family: var(--ff);
+    background-color: var(--clr-neutral-100);
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    display: block;
+    width: 100%;
+}
+
+button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.dark[data-state="on"] {
+    position: absolute;
+    inset: 0 0 0 0;
+    background-color: rgba(0, 0, 0, 0.519);
+}
+
+.dark[data-state="off"] {
+    display: none;
+}
+
+.logo {
+    width: 84px;
+    height: 27px;
+    background-image: url(../img/logo.svg);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 15px;
+}
+
+.nav-button {
+    display: flex;
+    position: relative;
+    z-index: 200;
+}
+
+.nav-button[aria-expanded="false"] {
+    width: 32px;
+    height: 18px;
+    background-image: url(../img/icon-menu.svg);
+}
+
+.nav-button[aria-expanded="true"] {
+    width: 26px;
+    height: 26px;
+    background-image: url(../img/icon-close-menu.svg);
+}
+
+.navigation[data-state="closed"] {
+    display: none;
+}
+
+.navigation[data-state="open"] {
+    position: absolute;
+    background-color: var(--clr-neutral-100);
+    right: 0;
+    top: 0;
+    bottom: 0;
+    padding: 70px 20px 0 20px;
+    width: 240px;
+}
+
+.navigation a {
+    color: var(--clr-neutral-200);
+    font-size: 0.8rem;
+}
+
+.nav-ul {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.nav-item div {
+    display: flex;
+    align-items: center;
+}
+
+.nav-link:hover {
+    color: var(--clr-neutral-300);
+}
+
+.nav-item:hover .drop-button{
+    fill: var(--clr-neutral-300);
+}
+
+.drop-button {
+    width: 15px;
+    aspect-ratio: 1;
+    display: flex;
+    justify-content: center;
+    margin-left: 5px;
+}
+
+.drop-button[aria-expanded="true"] {
+    rotate: 180deg;
+}
+
+.btn-icon {
+    width: 8px;
+    aspect-ratio: 1;
+}
+
+.dropdown[data-state="closed"] {
+    display: none;
+}
+
+.dropdown[data-state="open"] {
+    margin-left: 25px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.drop-link {
+    display: flex;
+    align-items: end;
+}
+
+.features .drop-link::before {
+    content: '';
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.todo::before {
+    background-image: url(../img/icon-todo.svg);
+}
+
+.calendar::before {
+    background-image: url(../img/icon-calendar.svg);
+}
+
+.reminders::before {
+    background-image: url(../img/icon-reminders.svg);
+}
+
+.planning::before {
+    background-image: url(../img/icon-planning.svg);
+}
+
+.login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.login a:hover {
+    color: var(--clr-neutral-300);
+}
+
+.login a:nth-child(2):hover {
+    border: 2px solid var(--clr-neutral-300);
+}
+
+.login a:nth-child(2) {
+    border: 2px solid var(--clr-neutral-200);
+    border-radius: 15px;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+}
+
+.main-container > div {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.main-container h1 {
+    font-size: 2.20rem;
+    margin-bottom: 20px;
+}
+
+.main-container p {
+    margin-inline: 20px;
+    line-height: 25px;
+    color: var(--clr-neutral-200);
+    margin-bottom: 20px;
+}
+
+.main-container a {
+    display: block;
+    width: fit-content;
+    background-color: var(--clr-neutral-300);
+    color: var(--clr-neutral-100);
+    padding: 15px 20px;
+    border-radius: 15px;
+    margin-bottom: 40px;
+    border: 2px solid var(--clr-neutral-300);
+}
+
+.main-container a:hover {
+    background-color: var(--clr-neutral-100);
+    color: var(--clr-neutral-300);
+}
+
+.clients {
+    display: flex;
+    gap: 20px;
+    margin-inline: 20px;
+    margin-bottom: 100px;
+}
+
+.clients svg {
+    height: 25px;
+}
+
+@media (min-width:50em) {
+
+    .header-container {
+        justify-content: flex-start;
+        padding-inline: 40px;
+    }
+
+    .nav {
+        position: relative;
+        float: right;
+        flex-grow: 1;
+    }
+
+    .logo {
+        align-self:flex-end;
+        margin-right: 60px;
+    }
+
+    .nav-button {
+        display: none;
+    }
+
+    .navigation[data-state="closed"] {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .nav-ul {
+        margin: 0;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .nav-ul .nav-item {
+        position: relative;
+    }
+
+    .dropdown {
+        position: absolute;
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        gap: 15px !important;
+        box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.085);
+        margin-left: 0 !important;
+    }
+
+    .features {
+        right: 0;
+    }
+
+    .company {
+        left: 0;
+        width: 100px;
+    }
+
+    .login {
+        flex-direction: row;
+        align-items: center;
+        align-self: flex-end;
+    }
+
+    .main-container {
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: end;
+        margin-inline: auto;
+        margin-top: 100px;
+        max-width: 1100px;
+        gap: 120px;
+    }
+
+    .main-container > div {
+        text-align: start;
+        align-items: flex-start;
+        margin-top: 0;
+    }
+
+    .main-container h1 {
+        font-size: 5.3rem;
+        margin-bottom: 40px;
+    }
+
+    .main-container p {
+        margin-left: 0;
+        margin-right: 150px;
+        margin-bottom: 30px;
+    }
+
+    .main-container a {
+        margin-bottom: 100px;
+    }
+
+    .clients {
+        margin: 0;
+    }
+
+    .clients svg {
+        height: 35px;
+    }
+}
